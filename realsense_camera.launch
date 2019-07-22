@@ -1,0 +1,16 @@
+<launch>
+    <arg name="robot_id" default="0" />
+
+    <!-- launch the camera within the namespace -->
+    <group ns="robot_$(arg robot_id)">
+    	<include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    		<!-- all vars that included.launch requires must be set -->
+        	<arg name="color_fps" value="15"/>
+        	<arg name="infra_fps" value="15"/>
+		<arg name="depth_fps" value="15"/> 
+    	</include>
+    </group>
+
+</launch>
+
+
